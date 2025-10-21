@@ -1,11 +1,11 @@
-casa = float(input('Digite o valor da casa: '))
-salario = float(input('Digite o salário do comprador: '))
-anos = int(input('Digite em quantos anos pretende pagar: '))
+casa = float(input('Valor da casa R$'))
+salario = float(input('Salário do comprador R$'))
+anos = int(input('Em quantos anos pretende pagar? '))
 
 parcelas = 12 * anos
-mensalidade = casa / parcelas
+prestacao = casa / parcelas
 
-if mensalidade > salario * 0.3:
-  print('\nEmpréstimo negado.\nO preço de R${:.2f} por parcela supera 30% do salário do comprador'.format(mensalidade))
+if prestacao > salario * 0.3:
+  print('\nEmpréstimo negado.\nA prestação de R${:.2f} supera 30% do salário do comprador'.format(prestacao))
 else:
-  print('\nEmpréstimo aprovado!\nDeverá pagar {} parcelas no valor de R${:.2f}'.format(parcelas, mensalidade))
+  print('\nEmpréstimo aprovado!\nDeverá pagar {} prestações no valor de R${:.2f}'.format(parcelas, prestacao))
