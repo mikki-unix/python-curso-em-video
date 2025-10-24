@@ -5,10 +5,16 @@ Escolha uma opção de pagamento:
 2 - Cartão de crédito
 """))
 
+while (opcao < 1) or (opcao > 2):
+  opcao = int(input('Opção inválida. Escolha novamente: '))
+
 if opcao == 1:
   precoFinal = precoOriginal - (precoOriginal * 0.1)
 else:
-  parcelas = int(input('\nEm quantas vezes? '))
+  parcelas = int(input('Em quantas vezes? '))
+
+  while parcelas < 1:
+    parcelas = int(input('Número inválido. Digite novamente: '))
 
   precoFinal = precoOriginal - (precoOriginal * 0.05)
   if parcelas == 2:

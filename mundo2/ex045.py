@@ -1,5 +1,5 @@
-from time import sleep
 from random import randint
+from time import sleep
 
 print('Vamos jogar jokenpô!')
 
@@ -13,14 +13,20 @@ resultados = [
   ['Eu venci!', 'Você venceu!', 'Empate!']
 ]
 
-while True:
+jogarDeNovo = 1
+
+while jogarDeNovo == 1:
   jogador = int(input(
-    '\nEscolha o que jogar!\n'
+    '\nEscolha o que jogar:\n'
     '1 - Pedra | 2 - Papel | 3 - Tesoura\n'
   )) - 1
+
+  while (jogador < 0) or (jogador > 2):
+    jogador = int(input('Opção inválida. Escolha novamente: ')) - 1
+
   computador = randint(0,2)
 
-  print('\nJO-KÊN-PO...!')
+  print('\nJO-KEN-PÔ...!')
   sleep(1.5)
   print(
     'Você jogou {} e eu joguei {}'
@@ -30,7 +36,11 @@ while True:
   print(resultados[jogador][computador])
   sleep(2)
 
-  if int(input('\nQuer jogar de novo?\n1 - Sim | 2 - Não\n')) == 2: break
-  else: print('\nOkay, então vamos mais uma vez!')
+  jogarDeNovo = int(input('\nQuer jogar de novo?\n1 - Sim | 2 - Não\n'))
+
+  while (jogarDeNovo < 1) or (jogarDeNovo > 2):
+    jogarDeNovo = int(input('Opção inválida. Escolha novamente: '))
+
+  if jogarDeNovo == 1: print('\nOkay, então vamos mais uma vez!')
 
 print('\nFoi bom jogar com você!')
